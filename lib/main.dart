@@ -1,19 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:foody_business/page/home_page.dart';
 import 'package:foody_business/page/login_page.dart';
-import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-AppMetricaConfig get _config =>
-    const AppMetricaConfig('3484ef59-b6b4-4041-acf0-d89b4bce0da2', logs: true);
-
-Future<void> main() async {
-  AppMetrica.runZoneGuarded(() {
-    WidgetsFlutterBinding.ensureInitialized();
-    AppMetrica.activate(_config);
-    runApp(MyApp());
-  });
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
+
+final navigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
@@ -24,11 +22,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: theme.copyWith(
-        colorScheme: theme.colorScheme
-            .copyWith(secondary: Colors.black12, primary: Colors.black54),
-      ),
-      home: LoginPage(),
-    );
+        navigatorKey: navigatorKey,
+        theme: theme.copyWith(
+          colorScheme: theme.colorScheme
+              .copyWith(secondary: Colors.black12, primary: Colors.black54),
+        ),
+        home: StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Something went wrong!'));
+              } else if (snapshot.hasData) {
+                return HomePage();
+              } else {
+                return LoginPage();
+              }
+            }));
   }
 }

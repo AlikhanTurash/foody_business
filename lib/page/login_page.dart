@@ -1,13 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foody_business/page/home_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginPage extends StatelessWidget {
   late TextEditingController _controllerEmail = TextEditingController();
   late TextEditingController _controllerPassword = TextEditingController();
 
-  String email = 'coffeeboom@gmail.com';
-  String password = '123';
+  String email = '';
+  String password = '';
 
   @override
   Widget build(BuildContext context) {
@@ -111,14 +113,7 @@ class LoginPage extends StatelessWidget {
                       height: 40,
                     ),
                     GestureDetector(
-                      onTap: () {
-                        if (email == 'aa' && password == 'aa') {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomePage()));
-                        }
-                      },
+                      onTap: signIn,
                       //TODO: Text with warning if the password or login is incorrect
                       child: Container(
                         alignment: Alignment.center,
@@ -153,5 +148,11 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _controllerEmail.text.trim(),
+        password: _controllerPassword.text.trim());
   }
 }
