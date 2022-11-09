@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "471828295094",
+    "project_id": "foody-business-bee36",
+    "storage_bucket": "foody-business-bee36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471828295094:android:f0f3adb1e28e64a6e0a517",
+        "android_client_info": {
+          "package_name": "com.alikhan.foodybusiness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471828295094-ajcqdv7859c1h4k4fibc8g242lpuejun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFwMSqGFpL5zx6S8Q_A3D5QqEiedbspKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471828295094-ajcqdv7859c1h4k4fibc8g242lpuejun.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "471828295094-vufab5eihf8sdhnplthuvdlfp4n6quvd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.foodyBusiness"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471828295094:android:11c49828ebafd22ce0a517",
+        "android_client_info": {
+          "package_name": "com.example.foody_business"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471828295094-ajcqdv7859c1h4k4fibc8g242lpuejun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFwMSqGFpL5zx6S8Q_A3D5QqEiedbspKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471828295094-ajcqdv7859c1h4k4fibc8g242lpuejun.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "471828295094-vufab5eihf8sdhnplthuvdlfp4n6quvd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.foodyBusiness"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foody_business/page/login_page.dart';
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 AppMetricaConfig get _config =>
     const AppMetricaConfig('3484ef59-b6b4-4041-acf0-d89b4bce0da2', logs: true);
